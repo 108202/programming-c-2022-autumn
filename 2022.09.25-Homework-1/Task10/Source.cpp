@@ -6,6 +6,6 @@ int main(int argc, char* argv[])
 	int b = 0;
 	std::cin >> a;
 	std::cin >> b;
-	std::cout << (( a / b * a + b / a * b ) / ( a / b + b / a ));
+	std::cout << (( a / b * a + b / a * b ) / ( a / b + b / a )) << std::endl;
 	return EXIT_SUCCESS;
 }
