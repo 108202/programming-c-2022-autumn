@@ -7,7 +7,6 @@ int main(int argc, char* argv)
 	int i = 0;
 	int a = 0;
 	
-
 	std::cin >> x;
 
 	for (i = 1; i*i <= x; i++)

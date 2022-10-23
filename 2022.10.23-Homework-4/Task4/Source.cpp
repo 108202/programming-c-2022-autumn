@@ -23,6 +23,7 @@ int main(int argc, char* argv)
 			k ++;
 		}
 	}
+
 	std::cout << k;
 	return EXIT_SUCCESS;
 }

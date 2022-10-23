@@ -8,9 +8,11 @@ int main(int argc, char* argv)
 	int b = 1;
 
 	std::cin >> n;
+
 	for (i = 1; i <= n; i++)
 	{
 		std::cout << a << " ";
+
 		b += 1;
 		if (b > a)
 		{

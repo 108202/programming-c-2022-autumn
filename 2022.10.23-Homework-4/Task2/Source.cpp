@@ -21,6 +21,7 @@ int main(int argc, char* argv)
 			break;
 		}
 	}
+
 	std::cout << n1;
 	return EXIT_SUCCESS;
 }

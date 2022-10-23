@@ -22,6 +22,5 @@ int main(int argc, char* argv)
 	a = a * 100000;
 	a /= 100000;
 	std::cout << a;
-
 	return EXIT_SUCCESS;
 }
