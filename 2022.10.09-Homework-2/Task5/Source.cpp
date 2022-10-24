@@ -9,12 +9,10 @@ int main(int argc, char* argv[])
 	if (k == 1 or k % 4 == 0)
 	{
 		std::cout << "YES";
-
 	}
 	else
 	{
 		std::cout << "NO";
-
 	}
 	return EXIT_SUCCESS;
 }

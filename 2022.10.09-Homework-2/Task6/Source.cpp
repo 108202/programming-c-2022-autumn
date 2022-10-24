@@ -15,12 +15,10 @@ int main(int argc, char* argv[])
 	if (x1 - x2 == y1 - y2 or x1 - x2 == y2 - y1 or x2 - x1 == y1 - y2 or x2 - x1 == y2 - y1 or x1 == x2 or y1 == y2)
 	{
 		std::cout << "YES";
-
 	}
 	else
 	{
 		std::cout << "NO";
-
 	}
 	return EXIT_SUCCESS;
 }

@@ -3,6 +3,7 @@
 int main(int argc, char* argv[])
 {
 	int n = 0;
+
 	std::cin >> n;
 
 	switch (n / 100)
@@ -64,8 +65,10 @@ int main(int argc, char* argv[])
 	}
 
 	if (n % 100 >= 11 and n % 100 <= 14)
-	{	std::cout << "bananov";
+	{	
+		std::cout << "bananov";
 	}
+
 	if ((n >= 0 and n <= 10) or (n >= 15)) 
 	{	switch (n % 10)
 		{

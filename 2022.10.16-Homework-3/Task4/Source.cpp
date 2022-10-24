@@ -1,11 +1,13 @@
 #include <iostream>
 
-int main(int argc, char* argv)
+int main(int argc, char* argv[])
 {
 	int n = 0;
-	std::cin >> n;
 	int i = 0;
 	int b = 1;
+
+	std::cin >> n;
+
 	do
 	{
 		if (i % n >= (n - i / n-1))
@@ -18,7 +20,9 @@ int main(int argc, char* argv)
 			std::cout << b << " ";
 			b += 1;
 		}
+
 		i += 1;
+
 		if (!(i % n))
 		{
 			std::cout << "\n";

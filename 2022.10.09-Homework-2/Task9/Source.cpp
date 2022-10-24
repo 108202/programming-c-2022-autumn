@@ -20,7 +20,6 @@ int main(int argc, char* argv[])
 	else if (N == M == x == y == 1)
 	{
 		std::cout << "(" << x << "," << y << ")";
-
 	}
 	else
 	{
@@ -29,18 +28,15 @@ int main(int argc, char* argv[])
 			if (x == 1)
 			{
 				std::cout << "(" << x + 1 << "," << y << ")";
-
 			}
 			else if (x == M)
 			{
 				std::cout << "(" << x - 1 << "," << y << ")";
-
 			}
 			else
 			{
 				std::cout << "(" << x - 1 << "," << y << ")";
 				std::cout << "(" << x + 1 << "," << y << ")";
-
 			}
 
 		}
@@ -49,20 +45,16 @@ int main(int argc, char* argv[])
 			if (y == 1)
 			{
 				std::cout << "(" << x << "," << y << ")";
-
 			}
 			else if (y == N)
 			{
 				std::cout << "(" << x << "," << y - 1 << ")";
-
 			}
 			else
 			{
 				std::cout << "(" << x << "," << y - 1 << ")";
 				std::cout << "(" << x << "," << y + 1 << ")";
-
 			}
-
 		}
 	}
 	return EXIT_SUCCESS;

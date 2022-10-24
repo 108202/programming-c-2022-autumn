@@ -13,24 +13,20 @@ int main(int argc, char* argv[])
 	if (a + b <= c or a + c <= b or c + b <= a)
 	{
 		std::cout << "impossible";
-
 	}
 	else
 	{
 		if (a * a + b * b == c * c)
 		{
 			std::cout << "right";
-
 		}
 		else if (a * a + b * b < c * c)
 		{
 			std::cout << "acute";
-
 		}
 		else if (a * a + b * b > c * c)
 		{
 			std::cout << "obtuse";
-
 		}
 	}
 	return EXIT_SUCCESS;

@@ -14,18 +14,16 @@ int main(int argc, char* argv[])
 	if (n <= k)
 	{	
 		t = m * 2;
-
 	}
 	else if (n * 2 % k == 0)
 	{
 		t = m * ( n * 2 / k );
-
 	}
 	else
 	{
 		t = m * ( 1 + n * 2 / k );
-
 	}
+
 	std::cout << t;
 	return EXIT_SUCCESS;
 }

@@ -13,12 +13,10 @@ int main(int argc, char* argv[])
 	if (k != m * n and ( k % n == 0 or k % m == 0 ))
 	{
 		std::cout << "YES";
-
 	}
 	else
 	{
 		std::cout << "NO";
-
 	}
 	return EXIT_SUCCESS;
 }
