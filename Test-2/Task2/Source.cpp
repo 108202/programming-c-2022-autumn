@@ -24,4 +24,5 @@ int main(int argc, char* argv[])
 	}
 
 	reverse(a, n - 1);
+	return EXIT_SUCCESS;
 }

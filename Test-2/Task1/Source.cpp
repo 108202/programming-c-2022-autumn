@@ -27,6 +27,7 @@ int main(int argc, char* argv[])
 	std::cin >> n;
 
 	d = n - 1;
+
 	prime(n, d);
 	return EXIT_SUCCESS;
 }
