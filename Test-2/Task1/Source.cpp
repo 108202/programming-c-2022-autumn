@@ -1,33 +1,71 @@
 #include <iostream>
 
-void prime(int n, int div)
+void helix(int** a, int n, int i, int j, int disti, int distj, int k)
 {
-	if (div >= 2)
+	if (k <= n * n)
 	{
-		if (n % div == 0)
+		if ((i + disti >= 0) and (j + distj >= 0) and (i + disti < n) and (j + distj < n) and (a[i + disti][j + distj] == 0))
 		{
-			std::cout << "composite";
+			a[i][j] = k;
+			helix(a, n, i + disti, j + distj, disti, distj, k + 1);
 		}
 		else
 		{
-			return prime(n, div - 1);
+			a[i][j] = k;
+			if (disti == 0 and distj == 1)
+			{
+				helix(a, n, i + 1, j, 1, 0, k + 1);
+			}
+			if (disti == 1 and distj == 0)
+			{
+				helix(a, n, i, j - 1, 0, -1, k + 1);
+			}
+			if (disti == -1 and distj == 0)
+			{
+				helix(a, n, i, j + 1, 0, 1, k + 1);
+			}
+			if (disti == 0 and distj == -1)
+			{
+				helix(a, n, i - 1, j, -1, 0, k + 1);
+			}
 		}
 	}
+
 	else
 	{
-		std::cout << "prime";
+		return;
 	}
 }
 
 int main(int argc, char* argv[])
 {
 	int n = 0;
-	int d = 0;
-	
+	int i = 0;
+	int j = 0;
+
 	std::cin >> n;
+	
+	int** a = new int* [n];
+	for (i = 0; i < n; i++)
+	{
+		a[i] = new int[n] {0};
+	}
 
-	d = n - 1;
+	helix(a, n, 0, 0, 0, 1, 1);
 
-	prime(n, d);
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			std::cout << a[i][j] << " ";
+		}
+		std::cout << "\n";
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		delete[] a[i];
+	}
+	delete[] a;
 	return EXIT_SUCCESS;
 }
