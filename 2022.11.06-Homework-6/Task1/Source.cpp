@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 		std::cin >> n[i];
 	}
 
-	for (i = number - 1; i >= 0; i--)c
+	for (i = number - 1; i >= 0; i--)
 	{
 		std::cout << n[i] << " ";
 	}

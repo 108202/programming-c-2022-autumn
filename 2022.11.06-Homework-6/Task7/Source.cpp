@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
 	for (i = 0; i < n; i++)
 	{
 		std::cin >> a[i];
+
 		if (a[i] < mina)
 		{
 			mina = a[i];

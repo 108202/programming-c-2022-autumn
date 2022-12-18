@@ -21,9 +21,10 @@ int main(int argc, char* argv[])
 	{
 		if (x <= a[i])
 		{
-			p = i+2;
+			p = i + 2;
 		}
 	}
+
 	std::cout << p;
 	return EXIT_SUCCESS;
 }

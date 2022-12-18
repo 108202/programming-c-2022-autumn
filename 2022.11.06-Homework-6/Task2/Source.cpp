@@ -24,12 +24,13 @@ int main(int argc, char* argv[])
 		std::cout << "input: ";
 		std::cin >> c >> d;
 		std::cout << "output: ";
-		for (i = c-1; i < d; i++)
+		for (i = c - 1; i < d; i++)
 		{
 			std::cout << a[i] << " ";
 		}
 		std::cout << "\n";
 	}
+
 	std::cout << "\n";
 	return EXIT_SUCCESS;
 }

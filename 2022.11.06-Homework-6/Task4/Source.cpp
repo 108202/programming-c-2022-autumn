@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
 	for (i = 1; i <= n; i++)
 	{
-		na[i] = i ;
+		na[i] = i;
 	}
 	for (i = a; i <= ( a + b ) / 2; i++)
 	{
