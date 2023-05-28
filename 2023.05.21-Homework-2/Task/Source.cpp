@@ -10,9 +10,9 @@ class Animal
 private:
 	Animal_species kind;
 	float power;
+	std::string bname;
 
 public:
-	std::string bname;
 	Animal() :
 		bname(" "), kind(empty), power(0) {};
 	Animal(std::string bname, Animal_species kind, float power) :
@@ -21,6 +21,8 @@ public:
 		bname(beast.bname), kind(beast.kind), power(beast.power) {};
 
 	~Animal() {};
+
+	std::string getName() { return bname; }
 
 	float gpower()
 	{
@@ -34,7 +36,7 @@ public:
 
 	std::string beastname()
 	{
-		return bname;
+		return getName();
 	}
 
 	void setkind()
