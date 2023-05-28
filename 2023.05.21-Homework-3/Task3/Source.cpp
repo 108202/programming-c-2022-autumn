@@ -2,9 +2,9 @@
 
 struct shape
 {
-	float a;
-	float b;
-	float c;
+	float a = 0;
+	float b = 0;
+	float c = 0;
 	shape(float a = 0, float b = 0, float c = 0) :
 		a(a), b(b), c(c) {};
 	shape(const shape& s) :

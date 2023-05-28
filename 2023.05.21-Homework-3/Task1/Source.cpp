@@ -9,7 +9,7 @@ struct Point
 	Point() :
 		x(0), y(0) {};
 
-	Point(int x, int y):
+	Point(int x = 0, int y = 0):
 		x(x), y(y) {};
 
 	Point(const Point& p) :
@@ -39,23 +39,29 @@ int main(int argc, char* argv[])
 
 	std::cin >> n;
 
-	Point* c = new Point[n];
+	Point* c;
+	c = (Point*)calloc(n, n * sizeof(Point));
 
 	for (i = 0; i < n; i++)
 	{
 		std::cin >> x >> y;
-		c[i] = Point(x, y);
+		if (c != nullptr)
+		{
+			c[i] = Point(x, y);
+		}
 	}
 
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < n - 1; j++)
 		{
-			if (c[j].Dist() > c[j + 1].Dist())
+			if (c != nullptr)
 			{
-				swap(c[j], c[j + 1]);
+				if (c[j].Dist() > c[j + 1].Dist())
+				{
+					swap(c[j], c[j + 1]);
+				}
 			}
-
 		}
 
 	}
@@ -64,10 +70,13 @@ int main(int argc, char* argv[])
 
 	for (i = 0; i < n; i++)
 	{
-		c[i].wPoint();
+		if (c != nullptr)
+		{
+			c[i].wPoint();
+		}
 	}
 
-	delete[] c;
+	free(c);
 		 
 	return EXIT_SUCCESS;
 }
