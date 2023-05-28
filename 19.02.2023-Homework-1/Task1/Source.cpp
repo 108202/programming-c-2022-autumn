@@ -34,7 +34,7 @@ struct Animal
 	}
 };
 
-void printAnimal(struct Animal Beast)
+void printAnimal(Animal Beast)
 {
 	std::cout << Beast.type << " " << Beast.name << " " << Beast.age << std::endl;
 }
@@ -46,10 +46,10 @@ void elderAnimal(struct Animal Beast)
 
 int main (int argc, char* argv[])
 {
-	Animal Bird;
-	printAnimal(Bird);
-	Animal Dog("Dog", "Sharik", 5);
-	elderAnimal(Dog);
-	printAnimal(Dog);
+	Animal bird;
+	printAnimal(bird);
+	Animal dog("dog", "Sharik", 5);
+	elderAnimal(dog);
+	printAnimal(dog);
 	return EXIT_SUCCESS;
 }
