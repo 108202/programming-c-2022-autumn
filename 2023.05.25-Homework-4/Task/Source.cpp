@@ -8,6 +8,8 @@ struct BtreeNode
 	BtreeNode* left;
 	BtreeNode(int data = 0, BtreeNode* right = nullptr, BtreeNode* left = nullptr) :
 		data(data), right(right), left(left) {};
+
+	~BtreeNode() {};
 };
 
 class Btree
@@ -17,31 +19,34 @@ private:
 
 	void Insert(BtreeNode*& root, BtreeNode* node)
 	{
-		if (root = nullptr)
+		if (root == nullptr)
 		{
 			root = node;
 			return;
 		}
 
-		if (root->data > node->data)
+		if (root)
 		{
-			Insert(root->left, node);
-		}
+			if (root->data == node->data)
+			{
+				return;
+			}
 
-		if (root->data > node->data)
-		{
-			Insert(root->right, node);
-		}
+			if (root->data > node->data)
+			{
+				return Insert(root->left, node);
+			}
 
-		if (root->data = node->data)
-		{
-			return;
+			if (root->data < node->data)
+			{
+				return Insert(root->right, node);
+			}
 		}
 	}
 
 	BtreeNode*& GetNode(BtreeNode*& root, int n)
 	{
-		if (root == nullptr || root->data == n)
+		if ((root == nullptr) || (root->data == n))
 		{
 			return root;
 		}
@@ -61,54 +66,51 @@ private:
 	{
 		BtreeNode* treenode = node;
 
-		if ((node->left = nullptr) && (node->right = nullptr))
+		if ((node->left == nullptr) && (node->right == nullptr))
 		{
 			node = nullptr;
 		}
 
+		else if (node->right == nullptr)
+		{
+			node = node->left;
+		}
+
+		else if (node->left == nullptr)
+		{
+			node = node->right;
+		}
+
+		else if (node->right->left == nullptr)
+		{
+			node->right->left = node->left;
+			node = node->right;
+		}
+
+		else if (node->left->right == nullptr)
+		{
+			node->left->right = node->right;
+			node = node->left;
+		}
+
 		else
 		{
-			if (node->right = nullptr)
+			BtreeNode* tree = node->right;
+
+			while (tree->left->left != nullptr)
 			{
-				node->left;
+				tree = tree->left;
 			}
 
-			if (node->left = nullptr)
-			{
-				node = node->right;
-			}
-
-			if (node->right->left = nullptr)
-			{
-				node->right->left = node->left;
-				node = node->right;
-			}
-
-			if (node->left->right = nullptr)
-			{
-				node->left->right = node->right;
-				node = node->left;
-			}
-
-			else
-			{
-				BtreeNode* tree = node->right;
-
-				while (tree->right->right != nullptr)
-				{
-					tree = tree->right;
-				}
-
-				BtreeNode* tree1 = Extract(tree->right);
-				tree1->right = tree->left;
-				tree1->left = tree->left;
-				tree = tree1;
-			}
-
-			treenode->right = nullptr;
-			treenode->left = nullptr;
-			return treenode;
+			BtreeNode* tree1 = Extract(tree->left);
+			tree1->left = node->left;
+			tree1->right = node->right;
+			node = tree1;
 		}
+
+		treenode->right = nullptr;
+		treenode->left = nullptr;
+		return treenode;
 	}
 public:
 	Btree() :
@@ -130,7 +132,7 @@ public:
 		}
 	}
 
-	bool contain(int data)
+	bool contains(int data)
 	{
 		return (GetNode(root, data) != nullptr);
 	}
@@ -152,7 +154,13 @@ public:
 		}
 
 		stream << root->data << std::endl;
+
 		print(stream, root->right, d + 1);
+	}
+
+	int copy(BtreeNode node)
+	{
+		return node.data;
 	}
 
 	friend std::ostream& operator<<(std::ostream& stream, Btree& tree)
@@ -177,25 +185,23 @@ int main(int argc, char* argv[])
 {
 	Btree tree;
 
-	tree.Add(8);
-	tree.Add(4);
 	tree.Add(12);
+	tree.Add(7);
+	tree.Add(5);
 	tree.Add(2);
-	tree.Add(6);
-	tree.Add(10);
-	tree.Add(14);
+	tree.Add(11);
+	tree.Add(4);
+	tree.Add(8);
 	tree.Add(1);
 	tree.Add(3);
-	tree.Add(5);
-	tree.Add(7);
+	tree.Add(6);
 	tree.Add(9);
-	tree.Add(11);
-	tree.Add(13);
-	tree.Add(15);
+	tree.Add(10);
 
 	std::cout << tree << std::endl;
 
 	tree.Remove(8);
+
 	std::cout << tree << std::endl;
 	return EXIT_SUCCESS;
 }
